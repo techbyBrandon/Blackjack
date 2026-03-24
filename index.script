@@ -1,0 +1,52 @@
+let cardCount = 0
+
+let deck = [
+"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //12
+"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //25
+"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //38
+"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];//51
+
+let hitButton = document.getElementById('hitButton');
+hitButton.addEventListener("click", getNumber);
+
+function getNumber(){
+  const number = Math.floor(Math.random() * 52);
+  const maxCards = 52 - cardCount;
+  if (number < maxCards){
+    const card = deck[number];
+    if(cardCount == 0){
+      const card1 = card
+      document.getElementById("Card").innerHTML = card;
+    }
+    if(cardCount == 1){
+      const card2 = card
+      document.getElementById("Card2").innerHTML = card;
+      document.getElementById("Card2").innerHTML.style.display = "inline";
+    }
+    cardCount = cardCount + 1;
+    deck.splice(number, 1);
+    if(cardCount == 1){
+      const delayForSecondCard = setTimeout(getNumber, 400);
+    }
+  }else{
+    retry();
+  }
+  
+}
+function makeCard(){
+  
+}
+function retry(){
+  getNumber();
+}
+function resetForNow(){
+  cardcount = 0;
+  deck = [
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //12
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //25
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", //38
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];//51
+  document.getElementById("Card").innerHTML = "";
+  document.getElementById("Card2").innerHTML = "";
+  document.getElementById("Card2").style.display = "none";
+}
