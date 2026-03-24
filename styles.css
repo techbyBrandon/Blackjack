@@ -1,0 +1,44 @@
+body{
+  background-color: #1c7822;
+}
+.button {
+  font-size:20px;
+  border-radius:20px;
+  curser:white;
+  margin-left: 50px;
+  margin-right:auto;
+  margin-top: 20px;
+}
+.button {
+  font-size:20px;
+  border-radius:20px;
+  curser:white;
+  margin-left: 50px;
+  margin-right:auto;
+  margin-top: 20px;
+}
+.card {
+  display: inline;
+  font-size:20px;
+  border-radius:20px;
+  curser:white;
+  margin-left: 50px;
+  margin-right:auto;
+  margin-top: 20px;
+  background-color: #E5D0CC;
+  padding: 100px;
+}
+#Card2 {
+  display: none;
+}
+
+
+
+.hit {
+  background-color: #F26430;
+  padding: 100px;
+} 
+.stay {
+  background-color: #6761A8;
+  padding: 100px 93px 100px 93px;
+}
