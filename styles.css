@@ -6,20 +6,42 @@ body{
   border-radius:20px;
   margin-top: 20px;
 }
-
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* spacing between buttons */
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  max-width: 50%;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+  justify-content: flex-start;
+}
+.Dcards{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  width: 50%;
+  max-width: 50%;
+  justify-content: flex-end;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+}
 .card {
-  display: inline;
   font-size:50px;
   border-radius:20px;
   curser:white;
-  float: left;
   margin-right: 25px;
   margin-left: 25px;
   margin-top: 20px;
-  background-color: #E5D0CC;
   padding: 75px;
-  display: flex;
   display: none;
+  background-color: #E5D0CC;
 }
 .Dcard {
   display: inline;
@@ -46,12 +68,8 @@ body{
 }
 .hit {
   background-color: #F26430;
-  margin-left: auto;
-  margin-right: auto;
 } 
 .stay {
   background-color: #6761A8;
-  margin-left: auto;
-  margin-right: auto;
   
 }
