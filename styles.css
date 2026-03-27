@@ -4,41 +4,54 @@ body{
 .button {
   font-size:20px;
   border-radius:20px;
-  curser:white;
-  margin-left: 50px;
-  margin-right:auto;
   margin-top: 20px;
 }
-.button {
-  font-size:20px;
-  border-radius:20px;
-  curser:white;
-  margin-left: 50px;
-  margin-right:auto;
-  margin-top: 20px;
-}
+
 .card {
   display: inline;
-  font-size:20px;
+  font-size:50px;
   border-radius:20px;
   curser:white;
-  margin-left: 50px;
-  margin-right:auto;
+  float: left;
+  margin-right: 25px;
+  margin-left: 25px;
   margin-top: 20px;
   background-color: #E5D0CC;
-  padding: 100px;
-}
-#Card2 {
+  padding: 75px;
+  display: flex;
   display: none;
 }
+.Dcard {
+  display: inline;
+  font-size:50px;
+  border-radius:20px;
+  curser:white;
+  float: right;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 20px;
+  background-color: #E5D0CC;
+  padding: 75px;
+  display: flex;
+  display: none;
+  background-color: #C26E5D;
+}
 
-
-
+.hit,.stay {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
 .hit {
   background-color: #F26430;
-  padding: 100px;
+  margin-left: auto;
+  margin-right: auto;
 } 
 .stay {
   background-color: #6761A8;
-  padding: 100px 93px 100px 93px;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
