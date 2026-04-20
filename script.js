@@ -14,7 +14,15 @@ document.getElementById("suggestion").innerHTML = "Draw to begin";
 
 
 const cardValue = (card) => card === "Ace" ? 11 : faceCards.has(card) ? 10 : parseInt(card, 10);
-const total = (values) => values.slice(0, 9).reduce((sum, value) => sum + value, 0);
+function total(values, maxCards) {
+    let sum = 0;
+    for (let i = 0; i < values.length; i++) {
+        if (i < maxCards) {
+            sum += values[i];
+        }
+    }
+    return sum;
+}
 
 
 function updateSuggestion() {
