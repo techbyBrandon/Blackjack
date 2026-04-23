@@ -1,44 +1,51 @@
 <html>
 <body>
-  <div class="buttons">
+  <div class="top">
+    
+    <p class="button" id="playerScore">You: 0</p>
     <button
-       onclick="getNumber(); getDealer();"
-       id="hitButton"
+       onclick="getCards()"
+       id="hit"
        type="submit" 
-       class="button hit">
+       class="button">
        Draw
     </button>
+    <p class="button" id="suggestion">Draw to begin</p>
     <button
-       id="stayButton"
+       id="stay"
        onclick= "resetForNow()"
        type="submit"
-       class="button stay">
+       class="button">
        Stand
     </button>
+    <p class="button" id="dealerScore">Dealer: 0</p>
   </div>
-  <div class = cards>
-    <p class ="card" id="C1" ></p>
-    <p class ="card" id="C2" ></p> 
-    <p class ="card" id="C3" ></p>
-    <p class ="card" id="C4" ></p>
-    <p class ="card" id="C5" ></p>
-    <p class ="card" id="C6" ></p>
-    <p class ="card" id="C7" ></p>
-    <p class ="card" id="C8" ></p>
-    <p class ="card" id="C9" ></p>
-    <p class ="card" id="C10" ></p>
-    <p class ="card" id="C11" ></p>
-  </div>
-  <div class = Dcards>
-    <p class ="card" id="DC1" ></p>
-    <p class ="card" id="DC2" ></p>
-    <p class ="card" id="DC3" ></p>
-    <p class ="card" id="DC4" ></p>
-    <p class ="card" id="DC5" ></p>
-    <p class ="card" id="DC6" ></p>
-    <p class ="card" id="DC7" ></p>
-    <p class ="card" id="DC8" ></p>
-    <p class ="card" id="DC9" ></p>
+  <div class=allCards>
+    <div class = cards>
+      <p class ="card" id="c1" ></p>
+      <p class ="card" id="c2" ></p> 
+      <p class ="card" id="c3" ></p>
+      <p class ="card" id="c4" ></p>
+      <p class ="card" id="c5" ></p>
+      <p class ="card" id="c6" ></p>
+      <p class ="card" id="c7" ></p>
+      <p class ="card" id="c8" ></p>
+      <p class ="card" id="c9" ></p>
+      <p class ="card" id="c10" ></p>
+      <p class ="card" id="c11" ></p>
+    </div>
+    <div class = Dcards>
+      <p class ="card" id="Dc1" ></p>
+      <p class ="card" id="Dc2" ></p>
+      <p class ="card" id="Dc3" ></p>
+      <p class ="card" id="Dc4" ></p>
+      <p class ="card" id="Dc5" ></p>
+      <p class ="card" id="Dc6" ></p>
+      <p class ="card" id="Dc7" ></p>
+      <p class ="card" id="Dc8" ></p>
+      <p class ="card" id="Dc9" ></p>
+    </div>
   </div>
 </body>
 </html>
+
