@@ -1,0 +1,114 @@
+body {
+  background-color: #13563B;
+  font-family: Monaco, monospace;
+}
+button{
+  all: unset;
+}
+.button {
+  font-size: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+  color: white;
+}
+
+.allCards {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  max-width: 50%;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+  justify-content: flex-start;
+}
+.Dcards {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50%;
+  max-width: 50%;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.card {
+  font-size: 35px;
+  border-radius: 12px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 105px;
+  min-width: 105px;
+  height: 155px;
+  line-height: 150px; /* Deleate and add reflection? */
+  text-align: center;
+  background-color: #E5D0CC;
+}
+.Dcard {
+  font-size: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 20px;
+  background-color: #E5D0CC;
+}
+#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#Dc1,#Dc2,#Dc3,#Dc4,#Dc5,#Dc6,#Dc7,#Dc8,#Dc9{
+  display:none;
+}
+#Dc1{
+  background-color: #808080;
+}
+
+
+#hit, #stay, #playerScore, #dealerScore, #suggestion{
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  outline: medium solid black;
+}
+#hit {
+  background-color: #7B1414;
+  cursor: pointer;
+}
+#stay {
+  background-color: #072475;
+  cursor: pointer;
+}
+#playerScore{
+  background-color: #31092e;
+  
+}
+#dealerScore{
+  background-color: #A46928;
+}
+
+#suggestion{
+  background-color: grey;
+  text-align: center;
+}
+
+#Count{
+  background-color: #686868;
+  text-align: center;
+}
+#Dcount{
+  background-color: #686868;
+  text-align: center;
+}
