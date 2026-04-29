@@ -56,13 +56,13 @@ function getNumber(){
     document.getElementById(currentCard).style.display = "inline";
     if(cardCount === 1){
       document.getElementById("hit").innerHTML = "Hit";
-    } //Deal -> hit
+    } 
     if(card === "Jack" ||card === "Queen" ||card === "King"){
       card = "10"
     }
     if(card === "Ace"){
       card = "11"
-    } //11 Ace
+    } 
     currentCard = parseInt(card);
     cardsValue.push(currentCard);
     CsAdded = total(cardsValue);
@@ -85,7 +85,7 @@ function getDealer(){
     }
     if(Dcard === "Ace"){
       Dcard = "11"
-    } //11 Ace
+    }
     DcurrentCard = parseInt(Dcard);  
     DcardsValue.push(DcurrentCard);
     DcardCount = DcardCount + 1;
