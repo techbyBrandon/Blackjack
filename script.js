@@ -97,7 +97,6 @@ function stand(){
     return;
   }
   document.getElementById("hit").disabled = true;
-  document.getElementById("stay").disabled = true;
   setTimeout(() => {
     document.getElementById("Dc1").innerHTML = Dcard1;
     document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
@@ -131,7 +130,6 @@ function resetForNow(){
     document.getElementById("hit").innerHTML = "Draw";
     document.getElementById('stay').textContent = "Stand";
     document.getElementById("hit").disabled = false;
-    document.getElementById("stay").disabled = false;
     cardsValue = [];
     DcardsValue = [];
     CsAdded = 0;
