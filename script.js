@@ -6,11 +6,36 @@ let DcardsValue = [];
 let CsAdded = 0;
 let DCsAdded = 0;
 let Dcard1 = 0;
+let bankroll = 1000;
+let currentBet = 0;
 let deck = [
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+
+function placeBet(amount) {
+  if (bankroll >= amount) {
+    currentBet += amount;
+    bankroll -= amount;
+    updateBettingDisplay();
+  }
+}
+
+function updateBettingDisplay() {
+  document.getElementById("bankroll").innerHTML = "Bankroll: $" + bankroll;
+  document.getElementById("currentBet").innerHTML = "Current Bet: $" + currentBet;
+  document.getElementById("startGame").disabled = currentBet === 0;
+}
+
+function startGame() {
+  if (currentBet > 0) {
+    document.getElementById("bettingSection").style.display = "none";
+    document.getElementById("gameSection").style.display = "block";
+    resetGame();
+  }
+}
+
 function total(cardsValue){
   let sum = 0, aceCount = 0;
   for (let i = 0; i < cardsValue.length; i++) {
@@ -103,54 +128,70 @@ function stand(){
   }, 200);
   reset = true
   document.getElementById('stay').textContent = "Reset";
+  let winnings = 0;
   if (CsAdded > 21) {
     document.getElementById("suggestion").innerHTML = "Dealer Wins!";
     dealerWins = dealerWins + 1;
+    winnings = -currentBet;
   }else if(CsAdded === 21 && cardsValue.length === 2){
     document.getElementById("suggestion").innerHTML = "Player Blackjack!";
     playerWins = playerWins + 1;
+    winnings = currentBet * 1.5;
   }else if(DCsAdded > 21){
     document.getElementById("suggestion").innerHTML = "You Win!";
     playerWins = playerWins + 1;
+    winnings = currentBet;
   }else if(CsAdded > DCsAdded){
     document.getElementById("suggestion").innerHTML = "You Win!";
     playerWins = playerWins + 1;
+    winnings = currentBet;
   }else if(DCsAdded > CsAdded){
     document.getElementById("suggestion").innerHTML = "Dealer Wins!";
     dealerWins = dealerWins + 1;
+    winnings = -currentBet;
   }else{
     document.getElementById("suggestion").innerHTML = "Tie!";
+    winnings = 0;
   }
+  bankroll += currentBet + winnings;
   document.getElementById("playerScore").innerHTML = "You: " + playerWins;
   document.getElementById("dealerScore").innerHTML = "Dealer: " + dealerWins;
+  document.getElementById("bankroll").innerHTML = "Bankroll: $" + bankroll;
+}
+function resetGame() {
+  cardsValue = [];
+  DcardsValue = [];
+  CsAdded = 0;
+  DCsAdded = 0;
+  cardCount = 0;
+  DcardCount = 0;
+  reset = false;
+  deck = [
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+  for (let i = 0; i < cardNumber.length; i++){
+    document.getElementById(cardNumber[i]).innerHTML = "";
+    document.getElementById(cardNumber[i]).style.display = "none";
+  } // Player Card Clear
+  document.getElementById("Dc1").style.backgroundColor = '#808080';
+  for (let i = 0; i < DcardNumber.length; i++){
+    document.getElementById(DcardNumber[i]).innerHTML = "";
+    document.getElementById(DcardNumber[i]).style.display = "none";
+  } // Dealer Card Clear
+  document.getElementById("hit").disabled = false;
 }
 function resetForNow(){ 
    if(reset === true){
     document.getElementById("suggestion").innerHTML = "Draw to begin";
     document.getElementById("hit").innerHTML = "Draw";
     document.getElementById('stay').textContent = "Stand";
-    document.getElementById("hit").disabled = false;
-    cardsValue = [];
-    DcardsValue = [];
-    CsAdded = 0;
-    DCsAdded = 0;
-    cardCount = 0;
-    DcardCount = 0;
-    reset = false;
-    deck = [
-    "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
-    "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
-    "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
-    "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
-    for (let i = 0; i < cardNumber.length; i++){
-      document.getElementById(cardNumber[i]).innerHTML = "";
-      document.getElementById(cardNumber[i]).style.display = "none";
-    } // Player Card Clear
-    document.getElementById("Dc1").style.backgroundColor = '#808080';
-    for (let i = 0; i < DcardNumber.length; i++){
-      document.getElementById(DcardNumber[i]).innerHTML = "";
-      document.getElementById(DcardNumber[i]).style.display = "none";
-    } // Dealer Card Clear
+    resetGame();
+    currentBet = 0;
+    updateBettingDisplay();
+    document.getElementById("bettingSection").style.display = "flex";
+    document.getElementById("gameSection").style.display = "none";
     }else{
       stand();
     }
