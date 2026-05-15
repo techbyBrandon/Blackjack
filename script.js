@@ -97,6 +97,7 @@ function stand(){
     return;
   }
   document.getElementById("hit").disabled = true;
+  document.getElementById("stay").disabled = true;
   setTimeout(() => {
     document.getElementById("Dc1").innerHTML = Dcard1;
     document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
