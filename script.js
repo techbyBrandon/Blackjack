@@ -98,8 +98,10 @@ function stand(){
     setTimeout(stand, 200);
     return;
   }
-  document.getElementById("Dc1").innerHTML = Dcard1;
-  document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
+  setTimeout(() => {
+     document.getElementById("Dc1").innerHTML = Dcard1;
+     document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
+   }, 400);
   reset = true
   document.getElementById('stay').textContent = "Reset";
   if (CsAdded > 21) {
