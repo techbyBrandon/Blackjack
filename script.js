@@ -136,15 +136,15 @@ function stand(){
   }else if(CsAdded === 21 && cardsValue.length === 2){
     document.getElementById("suggestion").innerHTML = "Player Blackjack!";
     playerWins = playerWins + 1;
-    winnings = currentBet * 1.5;
+    winnings = 50 + currentBet * 1.5;
   }else if(DCsAdded > 21){
     document.getElementById("suggestion").innerHTML = "You Win!";
     playerWins = playerWins + 1;
-    winnings = currentBet;
+    winnings = currentBet * 1.25;
   }else if(CsAdded > DCsAdded){
     document.getElementById("suggestion").innerHTML = "You Win!";
     playerWins = playerWins + 1;
-    winnings = currentBet;
+    winnings = currentBet * 1.25;
   }else if(DCsAdded > CsAdded){
     document.getElementById("suggestion").innerHTML = "Dealer Wins!";
     dealerWins = dealerWins + 1;
