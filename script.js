@@ -1,4 +1,4 @@
-let cardCount = 0, DcardCount = 0, playersWins = 0, dealersWins = 0, reset = false;
+let cardCount = 0, DcardCount = 0, playerWins = 0, dealerWins = 0, reset = false;
 let cardNumber = ["c1","c2","c3","c4","c5","c6","c7","c8","c9","c10","c11"];
 let DcardNumber = ["Dc1","Dc2","Dc3","Dc4","Dc5","Dc6","Dc7","Dc8","Dc9"];
 let cardsValue = [];
@@ -6,8 +6,6 @@ let DcardsValue = [];
 let CsAdded = 0;
 let DCsAdded = 0;
 let Dcard1 = 0;
-let playerWins = 0
-let dealerWins = 0
 let deck = [
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
@@ -98,10 +96,12 @@ function stand(){
     setTimeout(stand, 200);
     return;
   }
+  document.getElementById("hit").disabled = true;
+  document.getElementById("stay").disabled = true;
   setTimeout(() => {
-     document.getElementById("Dc1").innerHTML = Dcard1;
-     document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
-   }, 400);
+    document.getElementById("Dc1").innerHTML = Dcard1;
+    document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
+  }, 200);
   reset = true
   document.getElementById('stay').textContent = "Reset";
   if (CsAdded > 21) {
@@ -130,6 +130,8 @@ function resetForNow(){
     document.getElementById("suggestion").innerHTML = "Draw to begin";
     document.getElementById("hit").innerHTML = "Draw";
     document.getElementById('stay').textContent = "Stand";
+    document.getElementById("hit").disabled = false;
+    document.getElementById("stay").disabled = false;
     cardsValue = [];
     DcardsValue = [];
     CsAdded = 0;
