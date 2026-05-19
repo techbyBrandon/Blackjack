@@ -3,6 +3,7 @@ body {
   font-family: Monaco, monospace;
   margin: 0;
   padding: 0;
+  font-weight: bold;
 }
 
 button {
@@ -17,7 +18,7 @@ button {
 
 .button {
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 20px;
 }
 
@@ -196,28 +197,6 @@ button {
   opacity: 0.5;
 }
 
-.start-btn {
-  padding: 12px 40px;
-  font-size: 18px;
-  background-color: #072475;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 2px solid #fff;
-  font-weight: bold;
-  transition: all 0.3s;
-}
-
-.start-btn:hover:not(:disabled) {
-  background-color: #0A35A3;
-  transform: scale(1.05);
-}
-
-.start-btn:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-  opacity: 0.5;
-}
 
 /* Game Section Styles */
 .game-section {
