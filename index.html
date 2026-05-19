@@ -4,21 +4,6 @@
 </head>
 <body>
   <div class="main-container">
-    <!-- Betting Section at Top -->
-    <div class="betting-section" id="bettingSection">
-      <div class="betting-info">
-        <p id="bankroll">Bankroll: $1000</p>
-        <p id="currentBet">Current Bet: $0</p>
-      </div>
-      <div class="bet-buttons">
-        <button class="bet-btn" onclick="placeBet(10)">Bet $10</button>
-        <button class="bet-btn" onclick="placeBet(25)">Bet $25</button>
-        <button class="bet-btn" onclick="placeBet(50)">Bet $50</button>
-        <button class="bet-btn" onclick="placeBet(100)">Bet $100</button>
-      </div>
-      <button class="start-btn" id="startGame" onclick="startGame()" disabled>Start Game</button>
-    </div>
-
     <!-- Game Section Below -->
     <div class="game-section" id="gameSection">
       <div class="top">
@@ -66,6 +51,20 @@
           <p class="card" id="Dc9"></p>
         </div>
       </div>
+    </div>
+        <!-- Betting Section at Top -->
+    <div class="betting-section" id="bettingSection">
+      <div class="betting-info">
+        <p id="bankroll">Bankroll: $1000</p>
+        <p id="currentBet">Current Bet: $0</p>
+      </div>
+      <div class="bet-buttons">
+        <button class="bet-btn" onclick="placeBet(10)">Bet $10</button>
+        <button class="bet-btn" onclick="placeBet(25)">Bet $25</button>
+        <button class="bet-btn" onclick="placeBet(50)">Bet $50</button>
+        <button class="bet-btn" onclick="placeBet(100)">Bet $100</button>
+      </div>
+      <button class="start-btn" id="startGame" onclick="startGame()" disabled>Start Game</button>
     </div>
   </div>
   <script src="script.js"></script>
