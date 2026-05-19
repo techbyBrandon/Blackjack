@@ -20,19 +20,21 @@ function placeBet(amount) {
     currentBet += amount;
     bankroll -= amount;
     updateBettingDisplay();
+    // Auto-start game after first bet
+    if (currentBet === amount) {
+      setTimeout(startGame, 300);
+    }
   }
 }
 
 function updateBettingDisplay() {
   document.getElementById("bankroll").innerHTML = "Bankroll: $" + bankroll;
   document.getElementById("currentBet").innerHTML = "Current Bet: $" + currentBet;
-  document.getElementById("startGame").disabled = currentBet === 0 || gameInProgress;
 }
 
 function startGame() {
   if (currentBet > 0 && !gameInProgress) {
     gameInProgress = true;
-    document.getElementById("startGame").disabled = true;
     resetGame();
     getCards();
   }
