@@ -8,6 +8,7 @@ let DCsAdded = 0;
 let Dcard1 = 0;
 let bankroll = 1000;
 let currentBet = 0;
+let gameInProgress = false;
 let deck = [
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", 
@@ -15,7 +16,7 @@ let deck = [
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 
 function placeBet(amount) {
-  if (bankroll >= amount) {
+  if (bankroll >= amount && !gameInProgress) {
     currentBet += amount;
     bankroll -= amount;
     updateBettingDisplay();
@@ -25,14 +26,15 @@ function placeBet(amount) {
 function updateBettingDisplay() {
   document.getElementById("bankroll").innerHTML = "Bankroll: $" + bankroll;
   document.getElementById("currentBet").innerHTML = "Current Bet: $" + currentBet;
-  document.getElementById("startGame").disabled = currentBet === 0;
+  document.getElementById("startGame").disabled = currentBet === 0 || gameInProgress;
 }
 
 function startGame() {
-  if (currentBet > 0) {
-    document.getElementById("bettingSection").style.display = "none";
-    document.getElementById("gameSection").style.display = "flex";
+  if (currentBet > 0 && !gameInProgress) {
+    gameInProgress = true;
+    document.getElementById("startGame").disabled = true;
     resetGame();
+    getCards();
   }
 }
 
@@ -62,7 +64,7 @@ function updateSuggestion(){
   }
 }
 function getCards(){
-  if(reset === false){
+  if(!reset){
     getNumber();
     setTimeout(getDealer, 400);
     if(cardCount == 1){
@@ -189,9 +191,8 @@ function resetForNow(){
     document.getElementById('stay').textContent = "Stand";
     resetGame();
     currentBet = 0;
+    gameInProgress = false;
     updateBettingDisplay();
-    document.getElementById("bettingSection").style.display = "flex";
-    document.getElementById("gameSection").style.display = "none";
     }else{
       stand();
     }
