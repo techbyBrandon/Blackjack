@@ -31,7 +31,7 @@ function updateBettingDisplay() {
 function startGame() {
   if (currentBet > 0) {
     document.getElementById("bettingSection").style.display = "none";
-    document.getElementById("gameSection").style.display = "block";
+    document.getElementById("gameSection").style.display = "flex";
     resetGame();
   }
 }
