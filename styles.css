@@ -97,7 +97,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  outline: medium solid black;
+  outline: medium solid white;
 }
 
 #hit {
