@@ -1,10 +1,20 @@
 body {
   background-color: #13563B;
   font-family: Monaco, monospace;
+  margin: 0;
+  padding: 0;
 }
-button{
+
+button {
   all: unset;
 }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .button {
   font-size: 20px;
   border-radius: 20px;
@@ -23,7 +33,9 @@ button{
   flex-wrap: nowrap;
   align-items: flex-start;
   gap: 0;
+  flex: 1;
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -34,6 +46,7 @@ button{
   max-height: 300px;
   justify-content: flex-start;
 }
+
 .Dcards {
   display: flex;
   flex-direction: row-reverse;
@@ -44,6 +57,7 @@ button{
   overflow-y: auto;
   max-height: 300px;
 }
+
 .card {
   font-size: 35px;
   border-radius: 12px;
@@ -53,10 +67,11 @@ button{
   width: 105px;
   min-width: 105px;
   height: 155px;
-  line-height: 150px; /* Deleate and add reflection? */
+  line-height: 150px;
   text-align: center;
   background-color: #E5D0CC;
 }
+
 .Dcard {
   font-size: 50px;
   border-radius: 20px;
@@ -66,15 +81,16 @@ button{
   margin-top: 20px;
   background-color: #E5D0CC;
 }
-#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#Dc1,#Dc2,#Dc3,#Dc4,#Dc5,#Dc6,#Dc7,#Dc8,#Dc9{
-  display:none;
+
+#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#Dc1,#Dc2,#Dc3,#Dc4,#Dc5,#Dc6,#Dc7,#Dc8,#Dc9 {
+  display: none;
 }
-#Dc1{
+
+#Dc1 {
   background-color: #808080;
 }
 
-
-#hit, #stay, #playerScore, #dealerScore, #suggestion{
+#hit, #stay, #playerScore, #dealerScore, #suggestion {
   width: 150px;
   height: 100px;
   display: flex;
@@ -83,32 +99,36 @@ button{
   text-align: center;
   outline: medium solid black;
 }
+
 #hit {
   background-color: #7B1414;
   cursor: pointer;
 }
+
 #stay {
   background-color: #072475;
   cursor: pointer;
 }
-#playerScore{
+
+#playerScore {
   background-color: #31092e;
-  
 }
-#dealerScore{
+
+#dealerScore {
   background-color: #A46928;
 }
 
-#suggestion{
+#suggestion {
   background-color: grey;
   text-align: center;
 }
 
-#Count{
+#Count {
   background-color: #686868;
   text-align: center;
 }
-#Dcount{
+
+#Dcount {
   background-color: #686868;
   text-align: center;
 }
@@ -122,6 +142,13 @@ button{
   gap: 20px;
   padding: 40px;
   color: white;
+  border-bottom: 3px solid #FFD700;
+}
+
+.betting-info {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
 }
 
 .betting-section p {
@@ -190,4 +217,13 @@ button{
   background-color: #555;
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+/* Game Section Styles */
+.game-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
 }
