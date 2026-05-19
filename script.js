@@ -20,10 +20,6 @@ function placeBet(amount) {
     currentBet += amount;
     bankroll -= amount;
     updateBettingDisplay();
-    // Auto-start game after first bet
-    if (currentBet === amount) {
-      setTimeout(startGame, 300);
-    }
   }
 }
 
