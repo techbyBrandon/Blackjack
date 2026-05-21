@@ -64,10 +64,10 @@ function updateSuggestion(){
 function getCards(){
   if(!reset){
     getNumber();
-    setTimeout(getDealer, 400);
+    setTimeout(getDealer, 600);
     if(cardCount == 1){
-      setTimeout(getNumber, 650);
-      setTimeout(getDealer, 900);
+      setTimeout(getNumber, 1100);
+      setTimeout(getDealer, 1700);
     }
   }
 }
@@ -75,8 +75,17 @@ function getNumber(){
   if(CsAdded <= 22){
     let card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0]; 
     let currentCard = cardNumber[cardCount];
-    document.getElementById(currentCard).innerHTML = card;
-    document.getElementById(currentCard).style.display = "inline";
+    let cardElement = document.getElementById(currentCard);
+    
+    // Reset animation by removing and re-adding the class
+    cardElement.style.animation = 'none';
+    setTimeout(() => {
+      cardElement.style.animation = '';
+    }, 10);
+    
+    cardElement.innerHTML = card;
+    cardElement.style.display = "inline";
+    
     if(cardCount === 1){
       document.getElementById("hit").innerHTML = "Hit";
     } 
@@ -97,12 +106,20 @@ function getDealer(){
   if(DCsAdded < 17){
     let Dcard = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
     let DcurrentCard = DcardNumber[DcardCount];
+    let dealerCardElement = document.getElementById(DcurrentCard);
+    
+    // Reset animation by removing and re-adding the class
+    dealerCardElement.style.animation = 'none';
+    setTimeout(() => {
+      dealerCardElement.style.animation = '';
+    }, 10);
+    
     if(DcardCount >= 1){
-      document.getElementById(DcurrentCard).innerHTML = Dcard;
+      dealerCardElement.innerHTML = Dcard;
     }else{
       Dcard1 = Dcard
     }
-    document.getElementById(DcurrentCard).style.display = "inline";
+    dealerCardElement.style.display = "inline";
     if(Dcard === "Jack" ||Dcard === "Queen" ||Dcard === "King"){
       Dcard = "10"
     }
@@ -117,14 +134,21 @@ function getDealer(){
 }
 function stand(){
   if(DCsAdded < 17){
-    setTimeout(getDealer, 400);
+    setTimeout(getDealer, 600);
     setTimeout(stand, 200);
     return;
   }
   document.getElementById("hit").disabled = true;
   setTimeout(() => {
-    document.getElementById("Dc1").innerHTML = Dcard1;
-    document.getElementById("Dc1").style.backgroundColor = "#E5D0CC";
+    let dealerCard = document.getElementById("Dc1");
+    dealerCard.innerHTML = Dcard1;
+    dealerCard.style.backgroundColor = "#E5D0CC";
+    
+    // Trigger flip animation
+    dealerCard.style.animation = 'none';
+    setTimeout(() => {
+      dealerCard.style.animation = 'flipCard 0.6s ease-in-out';
+    }, 10);
   }, 200);
   reset = true
   document.getElementById('stay').textContent = "Reset";
@@ -174,11 +198,13 @@ function resetGame() {
   for (let i = 0; i < cardNumber.length; i++){
     document.getElementById(cardNumber[i]).innerHTML = "";
     document.getElementById(cardNumber[i]).style.display = "none";
+    document.getElementById(cardNumber[i]).style.animation = '';
   } // Player Card Clear
   document.getElementById("Dc1").style.backgroundColor = '#808080';
   for (let i = 0; i < DcardNumber.length; i++){
     document.getElementById(DcardNumber[i]).innerHTML = "";
     document.getElementById(DcardNumber[i]).style.display = "none";
+    document.getElementById(DcardNumber[i]).style.animation = '';
   } // Dealer Card Clear
   document.getElementById("hit").disabled = false;
 }
