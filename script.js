@@ -179,7 +179,7 @@ function stand(){
     document.getElementById("suggestion").innerHTML = "Tie!";
     winnings = 0;
   }
-  bankroll += currentBet + winnings;
+  bankroll += winnings;
   document.getElementById("playerScore").innerHTML = "You: " + playerWins;
   document.getElementById("dealerScore").innerHTML = "Dealer: " + dealerWins;
   document.getElementById("bankroll").innerHTML = "Bankroll: $" + bankroll;
