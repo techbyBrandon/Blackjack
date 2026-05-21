@@ -77,14 +77,15 @@ function getNumber(){
     let currentCard = cardNumber[cardCount];
     let cardElement = document.getElementById(currentCard);
     
-    // Reset animation by removing and re-adding the class
-    cardElement.style.animation = 'none';
-    setTimeout(() => {
-      cardElement.style.animation = '';
-    }, 10);
-    
+    // Set display and content before animation
     cardElement.innerHTML = card;
     cardElement.style.display = "inline";
+    
+    // Force reflow to ensure display is applied before animation
+    void cardElement.offsetWidth;
+    
+    // Apply animation
+    cardElement.style.animation = 'dealCard 0.6s ease-out forwards';
     
     if(cardCount === 1){
       document.getElementById("hit").innerHTML = "Hit";
@@ -108,18 +109,19 @@ function getDealer(){
     let DcurrentCard = DcardNumber[DcardCount];
     let dealerCardElement = document.getElementById(DcurrentCard);
     
-    // Reset animation by removing and re-adding the class
-    dealerCardElement.style.animation = 'none';
-    setTimeout(() => {
-      dealerCardElement.style.animation = '';
-    }, 10);
-    
     if(DcardCount >= 1){
       dealerCardElement.innerHTML = Dcard;
     }else{
       Dcard1 = Dcard
     }
     dealerCardElement.style.display = "inline";
+    
+    // Force reflow to ensure display is applied before animation
+    void dealerCardElement.offsetWidth;
+    
+    // Apply animation
+    dealerCardElement.style.animation = 'dealCardDealer 0.6s ease-out forwards';
+    
     if(Dcard === "Jack" ||Dcard === "Queen" ||Dcard === "King"){
       Dcard = "10"
     }
@@ -144,11 +146,11 @@ function stand(){
     dealerCard.innerHTML = Dcard1;
     dealerCard.style.backgroundColor = "#E5D0CC";
     
+    // Force reflow before animation
+    void dealerCard.offsetWidth;
+    
     // Trigger flip animation
-    dealerCard.style.animation = 'none';
-    setTimeout(() => {
-      dealerCard.style.animation = 'flipCard 0.6s ease-in-out';
-    }, 10);
+    dealerCard.style.animation = 'flipCard 0.6s ease-in-out';
   }, 200);
   reset = true
   document.getElementById('stay').textContent = "Reset";
