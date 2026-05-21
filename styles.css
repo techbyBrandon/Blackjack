@@ -59,6 +59,53 @@ button {
   max-height: 300px;
 }
 
+/* Card Animation Keyframes */
+@keyframes dealCard {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(-100px) rotateZ(-45deg) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotateZ(0deg) scale(1);
+  }
+}
+
+@keyframes dealCardDealer {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) translateY(-100px) rotateZ(45deg) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotateZ(0deg) scale(1);
+  }
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+  }
+}
+
 .card {
   font-size: 35px;
   border-radius: 12px;
@@ -71,6 +118,7 @@ button {
   line-height: 150px;
   text-align: center;
   background-color: #E5D0CC;
+  animation: dealCard 0.6s ease-out forwards;
 }
 
 .Dcard {
@@ -81,6 +129,7 @@ button {
   margin-left: 25px;
   margin-top: 20px;
   background-color: #E5D0CC;
+  animation: dealCardDealer 0.6s ease-out forwards;
 }
 
 #c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#Dc1,#Dc2,#Dc3,#Dc4,#Dc5,#Dc6,#Dc7,#Dc8,#Dc9 {
@@ -104,11 +153,28 @@ button {
 #hit {
   background-color: #7B1414;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#hit:hover:not(:disabled) {
+  background-color: #A01414;
+  transform: scale(1.05);
+}
+
+#hit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 #stay {
   background-color: #072475;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#stay:hover {
+  background-color: #0A3399;
+  transform: scale(1.05);
 }
 
 #playerScore {
