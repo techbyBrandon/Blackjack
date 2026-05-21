@@ -93,7 +93,7 @@ button {
     transform: rotateY(0deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(180deg);
   }
 }
 
@@ -118,7 +118,6 @@ button {
   line-height: 150px;
   text-align: center;
   background-color: #E5D0CC;
-  animation: dealCard 0.6s ease-out forwards;
 }
 
 .Dcard {
@@ -129,7 +128,6 @@ button {
   margin-left: 25px;
   margin-top: 20px;
   background-color: #E5D0CC;
-  animation: dealCardDealer 0.6s ease-out forwards;
 }
 
 #c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#Dc1,#Dc2,#Dc3,#Dc4,#Dc5,#Dc6,#Dc7,#Dc8,#Dc9 {
