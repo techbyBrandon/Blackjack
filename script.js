@@ -16,7 +16,7 @@ let deck = [
 "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 
 function placeBet(amount) {
-  if (amount <= 0) return; // Prevent negative or zero bets
+  if (amount <= 0 || bankroll <= 0) return; // Prevent negative or zero bets and prevent betting with negative bankroll
   if (bankroll >= amount && !gameInProgress) {
     currentBet += amount;
     bankroll -= amount;
